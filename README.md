@@ -39,6 +39,44 @@
 
 За поставување на основната структура на апликацијата и визуелниот распоред на формата односно дизајнот, се водевме според [видео туторијал](https://youtu.be/cVe7sGmkBLo) кој е достапен на Youtube.
 
+## Решение на проблемот
+
+### Податоци кои се чуваат
+
+Во апликацијата се чуваат различни видови на податоци кои се клучни за правилно функционирање на играта. Податоците се организирани во променливи, листи и тајмери кои се активно следени и ажурирани во текот на играта. Секој коментар детално објаснува која е улогата на секоја променлива и нејзината функција во играта.
+
+```csharp
+public partial class frmPuzzleGame : Form
+{
+    int delpoz = 0;
+    // opis: indeks na prazno parche na slozhuvalkata
+    // funkcija: se kontroliraat koi parchinja se dozvoleni za dvizhenje
+
+    int vodvizenje = 0;
+    // opis: se chuva vkupniot broj na potezi shto gi napravil korisnikot od pochetok na igrata
+    // funkcija: ja pokazhuva uspeshnosta na igrachot
+
+    List<Bitmap> orginalLista = new List<Bitmap>();
+    // opis: listata gi chuva site sliki i parcheto za prazno pole
+    // funkcija: konfiguracija za pravilen redosled na parchinjata i proverka dali igrata e zavrshena uspeshno
+
+    System.Diagnostics.Stopwatch timer = new System.Diagnostics.Stopwatch();
+    // opis: meri vreme pominato od pochetok na igrata
+    // funkcija: korisnikot ima ogranicheno vreme od edna minuta za reshavnaje na slozhuvalkata
+}
+```
+### Структури во кои се чуваат податоците
+
+1. Целобројни променливи
+Се користат за следење на позиција на празното парче (delpoz) и број на потези (vodvizenje). Тие се едноставни типови на податоци кои се ажурираат динамично со секој потег на играчот.
+2. Листа од слики – List<Bitmap>
+Листата orginalLista претставува динамична структура која содржи редослед на слики, не се менува, туку служи како модел за споредба дали тековниот распоред на парчињата е точен.
+3. Група на графички контроли – GroupBox со PictureBox контроли
+Во групата gbSlozuvalkaBox се сместени девет PictureBox контроли. Секоја PictureBox визуелно претставува едно парче од сложувалката.
+4. Тајмер – System.Diagnostics.Stopwatch
+Оваа структура е посебен објект што овозможува мерење на реално време. Тајмерот може да се стартува, паузира и ресетира според потребите на играта. Toj е поврзан со временско ограничување, односно ако помине една минута, играта автоматски се ресетира.
+
+
 ## Kратко упатство како се користи/игра
 
 

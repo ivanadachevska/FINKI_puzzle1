@@ -179,7 +179,7 @@ public partial class frmPuzzleGame : Form
 
   Добиен е совет за користење на do-while циклус со вклучена проверка преку Pobeda() за да се избегне сценарио каде сложувалката е веќе решена на старт.
 
-### 2.Функција pbSmeni()
+### 2. Функција pbSmeni()
 
 ```csharp
 private void pbSmeni(object sender, EventArgs e)
